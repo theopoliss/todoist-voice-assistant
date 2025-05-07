@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta
+
+[project]
+name = "todoist-assistant"
+version = "0.1.0"
+description = "Voice/chat assitant that manages Todoist tasks"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.15",
+    "todoist-api-python>=3.0.1,<4",
+    "fastapi>=0.111",
+]
+
+[tool.black]
+line-length = 100

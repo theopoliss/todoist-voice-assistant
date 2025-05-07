@@ -1,0 +1,70 @@
+# Environment variables
+.env
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Python cache files and byte code
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a PyInstaller script; adding them
+#  to your project gitignore is not recommended generated files should be
+#  excluded from VC using a global gitignore or the project's .git/info/exclude
+#  file.
+# *.manifest
+# *.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+.pytest_cache/
+
+# Flycheck
+.flycheck_*.el
+
+# Sphinx documentation
+docs/_build/
+
+# VS Code
+.vscode/
+
+# IDE-specific settings (IntelliJ, PyCharm)
+.idea/
+*.iml
+
+# macOS specific
+.DS_Store 
