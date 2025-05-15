@@ -33,6 +33,7 @@ def find_tasks(query: str | None = None, project_id: str | None = None, label: s
             for task_item in tasks_api_response: 
                 # ---- START DEBUG PRINT ----
                 print(f"DEBUG: Processing task_item type: {type(task_item[0])}")
+                print(f"DEBUG: TASK: {task_item[0].content}")
                 try:
                     print(f"DEBUG: Task content: {task_item[0].content}")
                 except AttributeError:
@@ -59,7 +60,6 @@ def find_tasks(query: str | None = None, project_id: str | None = None, label: s
                     "content": task_item[0].content,
                     "due": str(task_item[0].due) if task_item[0].due else None
                 })
-        
         return found_tasks
     except Exception as e:
         print(f"Error finding tasks: {e}") 

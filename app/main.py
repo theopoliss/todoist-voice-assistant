@@ -1,6 +1,6 @@
 import speech_recognition as sr
 import asyncio
-from app.llm_tools import handle_user # Assuming llm_tools.py is in the same app directory
+from app.llm_tools import handle_user
 # If config is needed directly in main.py, uncomment:
 # from .config import settings
 
@@ -35,8 +35,13 @@ def listen_and_get_text() -> str | None:
         return None
 
 async def voice_assistant_loop():
-    """Main loop for the voice assistant."""
+    """Main loop for the voice assistant, maintaining conversation history."""
     print("Voice Assistant Activated. Say 'exit' or 'quit' to stop.")
+    
+    conversation_history: list[dict] = [
+        {"role": "system", "content": "You are a helpful voice assistant for managing Todoist tasks. If you need to ask for clarification, be concise."}
+    ]
+
     while True:
         user_input_text = listen_and_get_text()
 
@@ -46,8 +51,11 @@ async def voice_assistant_loop():
                 break
 
             print(f"Processing: '{user_input_text}'...")
-            assistant_response = await handle_user(user_input_text)
-            print(f"Assistant: {assistant_response}")
+            assistant_response_text, updated_history = await handle_user(user_input_text, conversation_history)
+            
+            conversation_history = updated_history 
+            
+            print(f"Assistant: {assistant_response_text}")
         else:
             print("No valid input received. Try again or say 'exit'.")
         print("-" * 20) # Separator
